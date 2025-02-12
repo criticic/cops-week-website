@@ -50,8 +50,8 @@ const getEventColor = (type: string) => {
 
     <div class="max-w-4xl mx-auto bg-black/80 border-l-2 border-amber-100/30 p-8">
         {schedule.map((day) => (
-            <div class="mb-12">
-                <div class="flex items-center gap-4 mb-6">
+            <div class="mb-5">
+                <div class="flex items-center gap-4 mb-3">
                     <div class="p-2 border-l-2 border-amber-100/30 bg-black/30">
                         <span class="text-amber-100">{day.day}</span>
                     </div>
@@ -59,7 +59,7 @@ const getEventColor = (type: string) => {
                 </div>
                 <div class="pl-6 border-l border-amber-100/20">
                     {day.events.map((event) => (
-                        <div class="flex items-start gap-6 mb-4">
+                        <div class="flex items-start gap-6 mb-4 pt-1">
                             <span class="text-amber-100/50 font-mono w-16">{event.time}</span>
                             <span class={`font-mono ${getEventColor(event.type)}`}>{event.title}</span>
                         </div>
