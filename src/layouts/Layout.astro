@@ -1,22 +1,24 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE_CONFIG } from "@/data/config";
+import '@fontsource/space-mono';
+---
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+<!doctype html>
+<html lang="en" class="bg-[#0a0a0f]">
+  <head>
+    <BaseHead title={SITE_CONFIG.title} description={SITE_CONFIG.description} />
+  </head>
+  <body class="p-0 m-0 max-w-screen bg-[#0a0a0f] text-[#00ff00] cyber-grid">
+    <div class="grid-borders">
+      <!-- Borders moved to a separate component -->
+    </div>
+    <Header />
+    <main class="container mx-auto md:px-10">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

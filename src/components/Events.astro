@@ -1,0 +1,47 @@
+---
+const events = [
+  {
+    title: "Ctrl+Shift+Intelligence",
+    category: "Machine Learning",
+    icon: "brain",
+    description: "A 3-day international ML hackathon covering computer vision, NLP, RL, and data science.",
+    organizer: "COPS IG",
+    bgColor: "bg-ppink"
+  },
+  {
+    title: "DebugIt",
+    category: "Software Development",
+    icon: "code",
+    description: "A 3-day international software development hackathon for all skill levels.",
+    organizer: "COPS SDG",
+    bgColor: "bg-pgreen"
+  },
+  {
+    title: "Kashi CTF",
+    category: "Cybersecurity",
+    icon: "shield",
+    description: "24-hour international CTF with beginner-friendly to advanced challenges.",
+    organizer: "IIT(BHU)CyberSec",
+    bgColor: "bg-pblue"
+  }
+];
+---
+
+<section class="flex flex-col gap-4 py-20 border-t-2 border-amber-100/30">
+    <p class="text-amber-100 text-center font-mono">&gt; EVENTS</p>
+    <h2 class="text-4xl font-bold text-center glitch font-mono p-2">SELECT_YOUR_MISSION</h2>
+    <ul class="grid md:grid-cols-3 gap-8 py-20 px-4 md:px-0">
+      {events.map((event) => (
+        <li class="bg-black/30 border-2 border-amber-100/30 p-6 hover:bg-amber-100/10 transition-all duration-300">
+          <div class="flex flex-col gap-4">
+            <div class="text-lg font-mono text-amber-100">&gt; {event.title}</div>
+            <p class="font-mono text-sm border-l-2 border-amber-100/30 pl-2 text-amber-100/70">
+              {event.category}
+            </p>
+          </div>
+          <p class="mt-4 font-mono text-sm text-amber-100/80">{event.description}</p>
+          <p class="mt-4 text-xs text-amber-100/60">Organized By: {event.organizer}</p>
+        </li>
+      ))}
+    </ul>
+  </section>

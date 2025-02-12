@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@import '@fontsource/space-mono';
+
+* {
+  font-family: 'Space Mono', monospace;
+}
+
+.neon-text {
+  text-shadow: 0 0 5px #00ff00,
+               0 0 10px #00ff00,
+               0 0 20px #00ff00;
+}
+
+.cyber-grid {
+  background-image: 
+    linear-gradient(to right, #00ff0015 1px, transparent 1px),
+    linear-gradient(to bottom, #00ff0015 1px, transparent 1px);
+  background-size: 20px 20px;
+}
