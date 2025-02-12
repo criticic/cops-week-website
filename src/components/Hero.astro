@@ -1,3 +1,7 @@
+---
+import Terminal from "./Terminal.astro";
+---
+
 <section class="py-20 flex flex-col md:flex-row px-4 md:px-0 gap-10">
 	<!-- Left Content -->
 	<div class="flex flex-col gap-6 justify-start items-start md:w-1/2">
@@ -15,7 +19,7 @@
 			<p class="mt-2" is:raw>const events = {</p>
 			<p class="ml-4">ml: 'Machine Learning',</p>
 			<p class="ml-4">dev: 'Software Development',</p>
-			<p class="ml-4">cyber: 'Cybersecurity'</p>
+			<p class="ml-4">cybersec: 'Cybersecurity'</p>
 			<p is:raw>};</p>
 		</div>
 		<div class="flex gap-4 font-mono">
@@ -33,20 +37,5 @@
 	</div>
 
 	<!-- Terminal Section -->
-	<div class="w-1/2 flex items-center justify-center p-10">
-		<div
-			class="font-mono w-full bg-black/80 p-6 text-amber-100/90 border-amber-100/80 border-2 rounded-lg">
-			<div class="flex items-center gap-2 mb-4 text-amber-100/50">
-				<span>●</span>
-				<span>●</span>
-				<span>●</span>
-			</div>
-			<p class="mb-2">last login: Wed Feb 12 09:23:14 on ttys000</p>
-			<p class="mb-1">cops@server:~$ ls -la events/</p>
-			<p class="text-green-400">drwxr-xr-x 2 cops cops 4096 Feb 12 09:24 machine-learning/</p>
-			<p class="text-yellow-400">drwxr-xr-x 2 cops cops 4096 Feb 12 09:24 development/</p>
-			<p class="text-blue-400">drwxr-xr-x 2 cops cops 4096 Feb 12 09:24 cybersecurity/</p>
-			<p class="mt-4">cops@server:~$ _</p>
-		</div>
-	</div>
+	<Terminal />
 </section>

@@ -1,0 +1,88 @@
+<div class="md:w-1/2 flex items-center justify-center">
+    <div
+        class="font-mono w-full bg-black/80 p-6 text-amber-100/90 border-amber-100/80 border-2 rounded-lg">
+        <div class="flex items-center gap-2 mb-4 text-amber-100/50">
+            <span>●</span>
+            <span>●</span>
+            <span>●</span>
+        </div>
+        <div id="terminal-content">
+            <p class="mb-2 hidden">last login: Wed Feb 12 09:23:14 on ttys000</p>
+            <p class="mb-1 hidden">cops@server:~$ date</p>
+            <p class="text-amber-100 hidden">COPS Week 2025: 16th–23rd February</p>
+            <p class="mb-1 hidden">cops@server:~$ ls -la events/</p>
+            <p class="text-green-400 hidden">drwxr-xr-x 2 cops cops 4096 Feb 12 09:24 machine-learning/</p>
+            <p class="text-yellow-400 hidden">drwxr-xr-x 2 cops cops 4096 Feb 12 09:24 development/</p>
+            <p class="text-blue-400 hidden">drwxr-xr-x 2 cops cops 4096 Feb 12 09:24 cybersecurity/</p>
+            <p class="mt-4 hidden">cops@server:~$ <span class="cursor">_</span></p>
+        </div>
+    </div>
+</div>
+
+<style>
+  .cursor {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .visible {
+    display: block;
+  }
+</style>
+
+<script>
+  function typeWriter() {
+    const terminalContent = document.getElementById('terminal-content');
+    // @ts-ignore
+    const lines = Array.from(terminalContent.getElementsByTagName('p'));
+    let currentLineIndex = 0;
+    let currentCharIndex = 0;
+
+    function showNextLine() {
+      if (currentLineIndex >= lines.length) return;
+
+      const currentLine = lines[currentLineIndex];
+      const text = currentLine.textContent || '';
+      currentLine.classList.remove('hidden');
+      currentLine.classList.add('visible');
+
+      if (currentLineIndex === lines.length - 1) {
+        // Last line (prompt) appears immediately
+        currentLineIndex++;
+        setTimeout(showNextLine, 400);
+        return;
+      }
+
+      // Store original text and clear it
+      // @ts-ignore
+      currentLine.originalText = text;
+      currentLine.textContent = '';
+      
+      function typeChar() {
+        if (currentCharIndex < text.length) {
+          currentLine.textContent += text[currentCharIndex];
+          currentCharIndex++;
+          setTimeout(typeChar, 25);
+        } else {
+          currentCharIndex = 0;
+          currentLineIndex++;
+          setTimeout(showNextLine, 400);
+        }
+      }
+      
+      typeChar();
+    }
+    
+    showNextLine();
+  }
+
+  // Start the animation when the page loads
+  document.addEventListener('DOMContentLoaded', typeWriter);
+</script>
