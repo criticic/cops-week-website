@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@fontsource/space-mono": "^5.1.2",
@@ -14,6 +15,8 @@
     "@tailwindcss/vite": "^4.0.6",
     "astro": "^5.2.6",
     "astro-icon": "^1.1.5",
+    "prettier": "^3.5.0",
+    "prettier-plugin-astro": "^0.14.1",
     "tailwindcss": "^4.0.6"
   },
   "volta": {

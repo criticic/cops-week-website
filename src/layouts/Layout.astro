@@ -1,24 +1,22 @@
 ---
-import BaseHead from "@/components/BaseHead.astro";
-import Header from "@/components/Header.astro";
-import Footer from "@/components/Footer.astro";
-import { SITE_CONFIG } from "@/data/config";
+import BaseHead from '@/components/BaseHead.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import { SITE_CONFIG } from '@/data/config';
 import '@fontsource/space-mono';
 ---
 
 <!doctype html>
 <html lang="en" class="bg-[#0a0a0f]">
-  <head>
-    <BaseHead title={SITE_CONFIG.title} description={SITE_CONFIG.description} />
-  </head>
-  <body class="p-0 m-0 max-w-screen bg-[#0a0a0f] text-[#00ff00] cyber-grid">
-    <div class="grid-borders">
-      <!-- Borders moved to a separate component -->
-    </div>
-    <Header />
-    <main class="container mx-auto md:px-10">
-      <slot />
-    </main>
-    <Footer />
-  </body>
+	<head>
+		<BaseHead title={SITE_CONFIG.title} description={SITE_CONFIG.description} />
+	</head>
+	<body class="p-0 m-0 max-w-screen bg-[#0a0a0f] text-[#00ff00] cyber-grid">
+		<div class="grid-borders"></div>
+		<Header />
+		<main class="container mx-auto md:px-10">
+			<slot />
+		</main>
+		<Footer />
+	</body>
 </html>
