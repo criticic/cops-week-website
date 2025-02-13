@@ -49,23 +49,23 @@ const getEventColor = (type: string) => {
 ---
 
 <section
-  class="py-20 border-t-2 border-amber-100/30 px-4 md:px-0"
+  class="border-t-2 border-amber-100/30 px-4 py-20 md:px-0"
   id="schedule"
 >
-  <div class="text-center font-mono mb-16">
+  <div class="mb-16 text-center font-mono">
     <p class="text-amber-100/70">$ cat schedule.txt</p>
-    <h2 class="text-4xl text-amber-100 mt-2">[ TIMELINE ]</h2>
+    <h2 class="mt-2 text-4xl text-amber-100">[ TIMELINE ]</h2>
   </div>
 
-  <div class="max-w-4xl mx-auto bg-black/80 border-l-2 border-amber-100/30 p-8">
+  <div class="mx-auto max-w-4xl border-l-2 border-amber-100/30 bg-black/80 p-8">
     {
       schedule.map((day) => (
         <div class="mb-5">
-          <div class="flex items-center gap-4 mb-3">
-            <div class="p-2 border-l-2 border-amber-100/30 bg-black/30">
+          <div class="mb-3 flex items-center gap-4">
+            <div class="border-l-2 border-amber-100/30 bg-black/30 p-2">
               <span class="text-amber-100">{day.day}</span>
             </div>
-            <h3 class="text-xl font-mono text-amber-100/70">
+            <h3 class="font-mono text-xl text-amber-100/70">
               {new Date(day.date).toLocaleDateString('en-US', {
                 month: 'long',
                 day: 'numeric',
@@ -73,10 +73,10 @@ const getEventColor = (type: string) => {
               })}
             </h3>
           </div>
-          <div class="pl-6 border-l border-amber-100/20">
+          <div class="border-l border-amber-100/20 pl-6">
             {day.events.map((event) => (
-              <div class="flex items-start gap-6 mb-4 pt-1">
-                <span class="text-amber-100/50 font-mono w-16">
+              <div class="mb-4 flex items-start gap-6 pt-1">
+                <span class="w-16 font-mono text-amber-100/50">
                   {event.time}
                 </span>
                 <span class={`font-mono ${getEventColor(event.type)}`}>
@@ -90,18 +90,18 @@ const getEventColor = (type: string) => {
     }
   </div>
 
-  <div class="max-w-4xl mx-auto mt-8 font-mono text-sm">
+  <div class="mx-auto mt-8 max-w-4xl font-mono text-sm">
     <div class="flex justify-center gap-8">
       <div class="flex items-center gap-2">
-        <span class="w-3 h-3 rounded-full bg-green-400"></span>
+        <span class="h-3 w-3 rounded-full bg-green-400"></span>
         <span class="text-amber-100/70">IG</span>
       </div>
       <div class="flex items-center gap-2">
-        <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+        <span class="h-3 w-3 rounded-full bg-yellow-400"></span>
         <span class="text-amber-100/70">SDG</span>
       </div>
       <div class="flex items-center gap-2">
-        <span class="w-3 h-3 rounded-full bg-blue-400"></span>
+        <span class="h-3 w-3 rounded-full bg-blue-400"></span>
         <span class="text-amber-100/70">Infosec</span>
       </div>
     </div>

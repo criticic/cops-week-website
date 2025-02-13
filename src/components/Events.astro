@@ -31,22 +31,22 @@ const events = [
 ---
 
 <section
-  class="flex flex-col gap-4 py-20 border-t-2 border-amber-100/30"
+  class="flex flex-col gap-4 border-t-2 border-amber-100/30 py-20"
   id="events"
 >
-  <p class="text-amber-100 text-center font-mono text-2xl">&gt; EVENTS</p>
-  <h2 class="text-4xl font-bold text-center glitch font-mono p-2">
+  <p class="text-center font-mono text-2xl text-amber-100">&gt; EVENTS</p>
+  <h2 class="glitch p-2 text-center font-mono text-4xl font-bold">
     SELECT_YOUR_MISSION
   </h2>
-  <ul class="grid md:grid-cols-3 gap-8 py-20 px-4 md:px-0">
+  <ul class="grid gap-8 px-4 py-20 md:grid-cols-3 md:px-0">
     {
       events.map((event) => (
-        <li class="bg-black/30 border-2 border-amber-100/50 p-6 hover:bg-amber-100/20 transition-all duration-300">
+        <li class="border-2 border-amber-100/50 bg-black/30 p-6 transition-all duration-300 hover:bg-amber-100/20">
           <div class="flex flex-col gap-4">
-            <div class="text-lg font-mono text-amber-100">
+            <div class="font-mono text-lg text-amber-100">
               &gt; {event.title}
             </div>
-            <p class="font-mono text-sm border-l-2 border-amber-100/30 pl-2 text-amber-100/70">
+            <p class="border-l-2 border-amber-100/30 pl-2 font-mono text-sm text-amber-100/70">
               {event.category}
             </p>
           </div>

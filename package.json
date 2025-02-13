@@ -15,9 +15,13 @@
     "@tailwindcss/vite": "^4.0.6",
     "astro": "^5.2.6",
     "astro-icon": "^1.1.5",
+    "tailwindcss": "^4.0.6"
+  },
+  "devDependencies": {
+    "eslint-plugin-astro": "^0.31.0",
     "prettier": "^3.5.0",
     "prettier-plugin-astro": "^0.14.1",
-    "tailwindcss": "^4.0.6"
+    "prettier-plugin-tailwindcss": "^0.6.11"
   },
   "volta": {
     "node": "22.14.0"
