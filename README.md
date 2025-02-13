@@ -1,6 +1,8 @@
 # COPS Week Website
 
-This is the repository for the COPS Week website. The website is built using [Astro](https://astro.build/).
+This is the repository for the COPS Week website. The website is built using [Astro](https://astro.build/), and uses [TailwindCSS](https://tailwindcss.com/) for styling.
+
+![Website Screenshot](public/screenshot.png)
 
 ## 🧞 Commands
 
