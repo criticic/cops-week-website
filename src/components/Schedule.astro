@@ -3,7 +3,7 @@ const schedule = [
   {
     date: '2025-02-16',
     day: 'Day 0',
-    events: [{ time: '10:00', title: 'Mira Networks Workshop', type: 'ml' }],
+    events: [{ time: '10:00', title: 'Mira Networks Workshop', type: 'ml', location: 'Online' }],
   },
   {
     date: '2025-02-21',
@@ -13,7 +13,7 @@ const schedule = [
         time: '17:00',
         title: 'SheBuilds by Bhawna Chauhan',
         type: 'dev',
-        location: 'ABLT-4',
+        location: 'ABLT-4, IIT (BHU)',
       },
     ],
   },
@@ -25,7 +25,7 @@ const schedule = [
         time: '10:00',
         title: 'Solana Workshop',
         type: 'dev',
-        location: 'ABLT-4',
+        location: 'ABLT-4, IIT (BHU)',
       },
       { time: '17:30', title: 'Kashi CTF Begins', type: 'security' },
     ],
@@ -80,7 +80,7 @@ const getEventColor = (type: string) => {
                   {event.time}
                 </span>
                 <span class={`font-mono ${getEventColor(event.type)}`}>
-                  {event.title}
+                  {event.title} {event.location && `@ ${event.location}`}
                 </span>
               </div>
             ))}
