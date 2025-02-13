@@ -12,13 +12,18 @@ const sponsorTiers = [
     sponsors: [
       {
         name: 'Mira Networks',
-        logo: '/api/placeholder/200/100',
-        url: '#'
+        logo: '/mira.svg',
+        url: 'https://mira.network/'
       },
       {
         name: 'Codecrafters',
-        logo: '/api/placeholder/200/100',
-        url: '#'
+        logo: '/codecrafters.png',
+        url: 'https://codecrafters.io/'
+      },
+      {
+        name: 'APISec University',
+        logo: '/APISec_University.png',
+        url: 'https://www.apisecuniversity.com/'
       },
     ],
   },
@@ -41,18 +46,18 @@ const sponsorTiers = [
     sponsors: [
       {
         name: 'gen.xyz',
-        logo: '/api/placeholder/180/90',
-        url: '#'
+        logo: '/xyz-logo-white.png',
+        url: 'https://gen.xyz/'
       },
       {
         name: 'Burp Bounty',
-        logo: '/api/placeholder/180/90',
-        url: '#'
+        logo: '/burp_bounty.png',
+        url: 'https://burpbounty.net/'
       },
       {
         name: 'Altered Security',
-        logo: '/api/placeholder/180/90',
-        url: '#'
+        logo: '/altered_security.png',
+        url: 'https://alteredsecurity.com/'
       },
     ],
   },
@@ -66,11 +71,27 @@ const sponsorTiers = [
     sponsors: [
       {
         name: 'Lets Defend',
-        logo: '/api/placeholder/130/65',
-        url: '#'
+        logo: '/lets-defend.png',
+        url: 'https://letsdefend.io/'
       },
     ],
   },
+  {
+    name: 'OTHER',
+    icon: 'lucide:shield',
+    color: 'orange',
+    borderColor: 'border-orange-400',
+    textColor: 'text-orange-400',
+    hoverBg: 'hover:bg-orange-400/10',
+    sponsors: [
+      {
+        name: 'Give My Certificate',
+        logo: '/gmc.png',
+        url: 'https://givemycertificate.com/'
+      },
+    ],
+  },
+
 ];
 ---
 
@@ -119,7 +140,7 @@ const sponsorTiers = [
                 <img
                   src={sponsor.logo}
                   alt={`${sponsor.name} logo`}
-                  class="h-auto max-w-full opacity-80 transition-all group-hover:opacity-100"
+                  class="h-auto max-w-full opacity-80 transition-all group-hover:opacity-100 max-h-16"
                 />
                 <div class="mt-2 text-center font-mono text-xs text-amber-100/70">
                   <p class="mb-1">$ {sponsor.name}</p>
