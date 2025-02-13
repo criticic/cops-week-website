@@ -7,6 +7,8 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   integrations: [icon()],
 
+  site: 'https://cops-week-website.vercel.app/',
+
   vite: {
     plugins: [tailwindcss()],
   },
