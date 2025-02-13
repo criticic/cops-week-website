@@ -7,7 +7,7 @@
       <span>●</span>
       <span>●</span>
     </div>
-    <div id="terminal-content" class="h-[350px] overflow-y-auto md:h-auto">
+    <div id="terminal-content" class="h-[400px] overflow-y-auto md:h-auto">
       <p class="mb-2 hidden" id="last-login"></p>
       <p class="mb-1 hidden">cops@server:~$ date</p>
       <p class="hidden text-amber-100">COPS Week 2025: 16th–23rd February</p>
@@ -15,6 +15,7 @@
       <p class="hidden text-green-400" id="ml-dir"></p>
       <p class="hidden text-yellow-400" id="dev-dir"></p>
       <p class="hidden text-blue-400" id="sec-dir"></p>
+      <p class="hidden text-red-400" id="cp-dir"></p>
       <p class="mt-4 hidden">cops@server:~$ <span class="cursor">_</span></p>
     </div>
   </div>
@@ -73,6 +74,8 @@
       `drwxr-xr-x 2 cops cops 4096 ${terminalTime} development/`;
     document.getElementById('sec-dir')!.textContent =
       `drwxr-xr-x 2 cops cops 4096 ${terminalTime} cybersecurity/`;
+    document.getElementById('cp-dir')!.textContent =
+      `drwxr-xr-x 2 cops cops 4096 ${terminalTime} competitive-programming/`;
   }
 
   function typeWriter() {

@@ -27,6 +27,15 @@ const events = [
     organizer: 'COPS CyberSec',
     bgColor: 'bg-pblue',
   },
+  {
+    title: 'NP Compete',
+    category: 'Competitive Programming',
+    icon: 'lucid:sword',
+    description:
+      'A 36-hour competitive programming contest exclusively for IIT (BHU) freshers.',
+    organizer: 'COPS CPG',
+    bgColor: 'bg-pred',
+  },
 ];
 ---
 
@@ -38,7 +47,7 @@ const events = [
     <p class="text-amber-100/70">$ cat events.txt</p>
     <h2 class="mt-2 text-4xl text-amber-100">[ EVENTS ]</h2>
   </div>
-  <ul class="grid gap-8 px-4 py-20 md:grid-cols-3 md:px-0">
+  <ul class="grid gap-8 px-4 py-20 md:grid-cols-2 md:px-0">
     {
       events.map((event) => (
         <li class="border-2 border-amber-100/50 bg-black/30 p-6 transition-all duration-300 hover:bg-amber-100/20">
