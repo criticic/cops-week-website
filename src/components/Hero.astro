@@ -2,11 +2,11 @@
 import Terminal from './Terminal.astro';
 ---
 
-<section class="flex flex-col gap-10 px-4 py-20 md:flex-row md:px-0">
+<section class="flex flex-col gap-10 px-4 py-10 md:flex-row md:px-0">
   <!-- Left Content -->
   <div class="flex flex-col items-start justify-start gap-6 md:w-1/2">
     <h1 class="font-mono text-amber-100">
-      Club of Programmers, IIT (BHU) Varanasi presents
+      Club of ProgrammerS, IIT (BHU) Varanasi presents
     </h1>
     <div class="font-mono">
       <p class="text-4xl text-amber-100">$ COPS Week 2025</p>
@@ -27,18 +27,26 @@ import Terminal from './Terminal.astro';
       <p class="ml-4">cp: 'Competitive Programming'</p>
       <p is:raw>};</p>
     </div>
-    <div class="flex w-full flex-col gap-4 text-center font-mono sm:flex-row">
+    <div class="flex w-full flex-col gap-4 font-mono">
+      <div class="flex flex-col gap-4 sm:flex-row">
+        <a
+          href="https://unstop.com/college-fests/cops-week-2025-indian-institute-of-technology-banaras-hindu-university-330074"
+          class="bg-amber-100/10 px-5 py-3 text-center text-amber-100 transition-colors hover:bg-amber-100/20"
+        >
+          ./register.sh
+        </a>
+        <a
+          href="#schedule"
+          class="bg-amber-100/10 px-5 py-3 text-center text-nowrap text-amber-100 transition-colors hover:bg-amber-100/20"
+        >
+          cat schedule.txt
+        </a>
+      </div>
       <a
-        href="https://unstop.com/college-fests/cops-week-2025-indian-institute-of-technology-banaras-hindu-university-330074"
-        class="bg-amber-100/10 px-5 py-3 text-amber-100 transition-colors hover:bg-amber-100/20"
+        href="https://discord.gg/SFPasJjaYQ"
+        class="bg-amber-100/10 px-5 py-3 text-center text-amber-100 transition-colors hover:bg-amber-100/20 text-nowrap sm:w-fit"
       >
-        ./register.sh
-      </a>
-      <a
-        href="#schedule"
-        class="bg-amber-100/10 px-5 py-3 text-nowrap text-amber-100 transition-colors hover:bg-amber-100/20"
-      >
-        cat schedule.txt
+        cd discord
       </a>
     </div>
   </div>
