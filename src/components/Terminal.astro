@@ -65,9 +65,13 @@
       hour12: false
     });
 
+    // @ts-ignore
     document.getElementById('last-login').textContent = `last login: ${lastLoginTime} on ttys000`;
+    // @ts-ignore
     document.getElementById('ml-dir').textContent = `drwxr-xr-x 2 cops cops 4096 ${terminalTime} machine-learning/`;
+    // @ts-ignore
     document.getElementById('dev-dir').textContent = `drwxr-xr-x 2 cops cops 4096 ${terminalTime} development/`;
+    // @ts-ignore
     document.getElementById('sec-dir').textContent = `drwxr-xr-x 2 cops cops 4096 ${terminalTime} cybersecurity/`;
   }
 
