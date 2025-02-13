@@ -1,11 +1,30 @@
 ---
-const schedule = [
+import { Icon } from 'astro-icon/components';
+
+interface Event {
+  title: string;
+  startTime: string;
+  endTime: string;
+  type: 'ml' | 'dev' | 'cybersec' | 'cp';
+  location: string;
+  startDate?: string;
+  endDate?: string;
+}
+
+interface DaySchedule {
+  date: string;
+  day: string;
+  events: Event[];
+}
+
+const schedule: DaySchedule[] = [
   {
     date: '2025-02-16',
     day: 'Day 0',
     events: [
       {
-        time: '10:00',
+        startTime: '10:00',
+        endTime: '16:00',
         title: 'Mira Networks Workshop',
         type: 'ml',
         location: 'Online',
@@ -17,10 +36,13 @@ const schedule = [
     day: 'Day 4',
     events: [
       {
-        time: '18:00',
-        title: 'NP Compete Begins',
+        startTime: '18:00',
+        endTime: '06:00',
+        title: 'NP Compete',
         type: 'cp',
         location: 'Online',
+        startDate: '2025-02-20',
+        endDate: '2025-02-22',
       },
     ],
   },
@@ -29,7 +51,8 @@ const schedule = [
     day: 'Day 5',
     events: [
       {
-        time: '17:00',
+        startTime: '17:00',
+        endTime: '20:00',
         title: 'SheBuilds by Bhawna Chauhan',
         type: 'dev',
         location: 'ABLT-4, IIT (BHU)',
@@ -41,111 +64,151 @@ const schedule = [
     day: 'Day 6',
     events: [
       {
-        time: '06:00',
-        title: 'NP Compete Ends',
-        type: 'cp',
-        location: 'Online',
-      },
-      {
-        time: '10:00',
+        startTime: '10:00',
+        endTime: '12:00',
         title: 'Solana Workshop',
         type: 'dev',
         location: 'ABLT-4, IIT (BHU)',
       },
       {
-        time: '17:30',
-        title: 'Kashi CTF Begins',
+        startTime: '17:30',
+        endTime: '17:30',
+        title: 'Kashi CTF',
         type: 'cybersec',
         location: 'Online',
-      },
-    ],
-  },
-  {
-    date: '2025-02-23',
-    day: 'Day 7',
-    events: [
-      {
-        time: '17:30',
-        title: 'Kashi CTF Ends',
-        type: 'cybersec',
-        location: 'Online',
+        startDate: '2025-02-22',
+        endDate: '2025-02-23',
       },
     ],
   },
 ];
 
-const getEventColor = (type: string) => {
-  const colors = {
-    ml: 'text-green-400',
-    dev: 'text-yellow-400',
-    cybersec: 'text-blue-400',
-    cp: 'text-red-400',
-    overall: 'text-amber-100',
+const typeLabels = {
+  ml: 'Machine Learning',
+  dev: 'Development',
+  cybersec: 'Cybersecurity',
+  cp: 'Competitive Programming',
+} as const;
+
+const typeColors = {
+  ml: 'bg-emerald-500/20 border-emerald-500 text-emerald-400',
+  dev: 'bg-amber-500/20 border-amber-500 text-amber-400',
+  cybersec: 'bg-blue-500/20 border-blue-500 text-blue-400',
+  cp: 'bg-rose-500/20 border-rose-500 text-rose-400',
+} as const;
+
+const getEventColor = (type: keyof typeof typeColors) => typeColors[type];
+
+function getTimeString(event: Event): string {
+  const formatDate = (date: string) => {
+    return new Date(date).toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+    });
   };
-  return colors[type as keyof typeof colors] || 'text-amber-100';
-};
+
+  const startDateStr = event.startDate ? ` (${formatDate(event.startDate)})` : '';
+  const endDateStr = event.endDate ? ` (${formatDate(event.endDate)})` : '';
+  
+  return `${event.startTime}${startDateStr} - ${event.endTime}${endDateStr}`;
+}
 ---
 
-<section
-  class="border-t-2 border-amber-100/30 px-4 py-20 md:px-0"
-  id="schedule"
->
-  <div class="mb-16 text-center font-mono">
-    <p class="text-amber-100/70">$ cat schedule.txt</p>
-    <h2 class="mt-2 text-4xl text-amber-100">[ TIMELINE ]</h2>
-  </div>
-
-  <div class="mx-auto max-w-4xl border-l-2 border-amber-100/30 bg-black/80 p-8">
-    {
-      schedule.map((day) => (
-        <div class="mb-5">
-          <div class="mb-3 flex items-center gap-4">
-            <div class="border-l-2 border-amber-100/30 bg-black/30 p-2">
-              <span class="text-amber-100">{day.day}</span>
+<section class="py-20" id="schedule">
+  <div class="container mx-auto px-4">
+    <div class="mb-16 text-center">
+      <h2 class="mb-4 text-4xl font-bold text-amber-100">Event Timeline</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        {
+          Object.entries(typeLabels).map(([type, label]) => (
+            <div class="flex items-center gap-2">
+              <div
+                class={`h-3 w-3 rounded-full ${
+                  type === 'ml'
+                    ? 'bg-emerald-500'
+                    : type === 'dev'
+                      ? 'bg-amber-500'
+                      : type === 'cybersec'
+                        ? 'bg-blue-500'
+                        : 'bg-rose-500'
+                }`}
+              />
+              <span class="text-sm text-amber-100/70">{label}</span>
             </div>
-            <h3 class="font-mono text-xl text-amber-100/70">
-              {new Date(day.date).toLocaleDateString('en-US', {
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric',
-              })}
-            </h3>
-          </div>
-          <div class="border-l border-amber-100/20 pl-6">
-            {day.events.map((event) => (
-              <div class="mb-4 flex items-start gap-6 pt-1">
-                <span class="w-16 font-mono text-amber-100/50">
-                  {event.time}
-                </span>
-                <span class={`font-mono ${getEventColor(event.type)}`}>
-                  {event.title} {event.location && `@ ${event.location}`}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))
-    }
-  </div>
+          ))
+        }
+      </div>
+    </div>
 
-  <div class="mx-auto mt-8 max-w-4xl font-mono text-sm">
-    <div class="flex justify-center gap-8">
-      <div class="flex items-center gap-2">
-        <span class="h-3 w-3 rounded-full bg-green-400"></span>
-        <span class="text-amber-100/70">IG</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <span class="h-3 w-3 rounded-full bg-yellow-400"></span>
-        <span class="text-amber-100/70">SDG</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <span class="h-3 w-3 rounded-full bg-blue-400"></span>
-        <span class="text-amber-100/70">Infosec</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <span class="h-3 w-3 rounded-full bg-red-400"></span>
-        <span class="text-amber-100/70">CP</span>
-      </div>
+    <div class="mx-auto max-w-4xl space-y-6">
+      {
+        schedule.map((day) => (
+          <div class="relative">
+            <div class="sticky top-0 z-10 mb-2 bg-black/90 py-4 backdrop-blur-sm">
+              <div class="flex items-center gap-4">
+                <div class="rounded bg-amber-100/10 px-4 py-2">
+                  <span class="font-mono text-amber-100">{day.day}</span>
+                </div>
+                <h3 class="text-xl text-amber-100/70">
+                  {new Date(day.date).toLocaleDateString('en-US', {
+                    month: 'long',
+                    day: 'numeric',
+                    year: 'numeric',
+                  })}
+                </h3>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              {day.events.map((event) => (
+                <div
+                  class={`relative rounded-lg border p-4 backdrop-blur-sm ${getEventColor(event.type)}`}
+                >
+                  <div class="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+                    <div class="flex items-center gap-3">
+                      <div class="font-mono text-sm opacity-80">
+                        {getTimeString(event)}
+                      </div>
+                      <h4 class="font-semibold">{event.title}</h4>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm opacity-80">
+                      <Icon name="lucide:map-pin" class="h-4 w-4" />
+                      <span>{event.location}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
+
+<style>
+  section {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+  }
+
+  .container {
+    position: relative;
+  }
+
+  .container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: rgba(251, 191, 36, 0.1);
+    z-index: -1;
+  }
+
+  @media (max-width: 768px) {
+    .container::before {
+      left: 20px;
+    }
+  }
+</style>
