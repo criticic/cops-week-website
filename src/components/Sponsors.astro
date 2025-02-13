@@ -2,138 +2,145 @@
 import { Icon } from 'astro-icon/components';
 
 const sponsorTiers = [
-	{
-		name: 'PLATINUM',
-		icon: 'lucide:gem',
-		color: 'amber',
-		borderColor: 'border-amber-400',
-		textColor: 'text-amber-400',
-		hoverBg: 'hover:bg-amber-400/10',
-		sponsors: [
-			{
-				name: 'Mira Networks',
-				logo: '/api/placeholder/200/100',
-				url: '#',
-				details: 'Prizes worth INR 40k',
-			},
-			{
-				name: 'Codecrafters',
-				logo: '/api/placeholder/200/100',
-				url: '#',
-				details: '2 Year, 1 Year, 6 month VIP voucher',
-			},
-		],
-	},
-	{
-		name: 'GOLD',
-		icon: 'lucide:award',
-		color: 'yellow',
-		borderColor: 'border-yellow-400',
-		textColor: 'text-yellow-400',
-		hoverBg: 'hover:bg-yellow-400/10',
-		sponsors: [],
-	},
-	{
-		name: 'SILVER',
-		icon: 'lucide:medal',
-		color: 'blue',
-		borderColor: 'border-blue-400',
-		textColor: 'text-blue-400',
-		hoverBg: 'hover:bg-blue-400/10',
-		sponsors: [
-			{
-				name: 'gen.xyz',
-				logo: '/api/placeholder/180/90',
-				url: '#',
-				details: '25 domains, each valid for 1 year',
-			},
-			{
-				name: 'Burp Bounty',
-				logo: '/api/placeholder/180/90',
-				url: '#',
-				details: '3 Burp Bounty Pro Annual License with 4 activations each',
-			},
-			{
-				name: 'Altered Security',
-				logo: '/api/placeholder/180/90',
-				url: '#',
-				details: '1 CRTP Voucher',
-			},
-		],
-	},
-	{
-		name: 'BRONZE',
-		icon: 'lucide:shield',
-		color: 'orange',
-		borderColor: 'border-orange-400',
-		textColor: 'text-orange-400',
-		hoverBg: 'hover:bg-orange-400/10',
-		sponsors: [
-			{
-				name: 'Lets Defend',
-				logo: '/api/placeholder/130/65',
-				url: '#',
-				details: '5 x LetsDefend 1 month VIP vouchers',
-			},
-		],
-	},
+  {
+    name: 'PLATINUM',
+    icon: 'lucide:gem',
+    color: 'amber',
+    borderColor: 'border-amber-400',
+    textColor: 'text-amber-400',
+    hoverBg: 'hover:bg-amber-400/10',
+    sponsors: [
+      {
+        name: 'Mira Networks',
+        logo: '/api/placeholder/200/100',
+        url: '#',
+        details: 'Prizes worth INR 40k',
+      },
+      {
+        name: 'Codecrafters',
+        logo: '/api/placeholder/200/100',
+        url: '#',
+        details: '2 Year, 1 Year, 6 month VIP voucher',
+      },
+    ],
+  },
+  {
+    name: 'GOLD',
+    icon: 'lucide:award',
+    color: 'yellow',
+    borderColor: 'border-yellow-400',
+    textColor: 'text-yellow-400',
+    hoverBg: 'hover:bg-yellow-400/10',
+    sponsors: [],
+  },
+  {
+    name: 'SILVER',
+    icon: 'lucide:medal',
+    color: 'blue',
+    borderColor: 'border-blue-400',
+    textColor: 'text-blue-400',
+    hoverBg: 'hover:bg-blue-400/10',
+    sponsors: [
+      {
+        name: 'gen.xyz',
+        logo: '/api/placeholder/180/90',
+        url: '#',
+        details: '25 domains, each valid for 1 year',
+      },
+      {
+        name: 'Burp Bounty',
+        logo: '/api/placeholder/180/90',
+        url: '#',
+        details: '3 Burp Bounty Pro Annual License with 4 activations each',
+      },
+      {
+        name: 'Altered Security',
+        logo: '/api/placeholder/180/90',
+        url: '#',
+        details: '1 CRTP Voucher',
+      },
+    ],
+  },
+  {
+    name: 'BRONZE',
+    icon: 'lucide:shield',
+    color: 'orange',
+    borderColor: 'border-orange-400',
+    textColor: 'text-orange-400',
+    hoverBg: 'hover:bg-orange-400/10',
+    sponsors: [
+      {
+        name: 'Lets Defend',
+        logo: '/api/placeholder/130/65',
+        url: '#',
+        details: '5 x LetsDefend 1 month VIP vouchers',
+      },
+    ],
+  },
 ];
 ---
 
 <section
-	class="py-20 flex flex-col items-center gap-16 border-t-2 border-amber-100/30 px-4 md:px-0" id="sponsors">
-	<div class="text-center font-mono">
-		<p class="text-amber-100/70">$ cat sponsors.txt</p>
-		<h2 class="text-4xl text-amber-100 mt-2">[ SPONSORS ]</h2>
-	</div>
+  class="py-20 flex flex-col items-center gap-16 border-t-2 border-amber-100/30 px-4 md:px-0"
+  id="sponsors"
+>
+  <div class="text-center font-mono">
+    <p class="text-amber-100/70">$ cat sponsors.txt</p>
+    <h2 class="text-4xl text-amber-100 mt-2">[ SPONSORS ]</h2>
+  </div>
 
-	<div class="w-full max-w-2xl bg-black/80 border-l-2 border-amber-100/30 p-8">
-		<h3 class="text-2xl font-mono text-amber-100 mb-4">// JOIN_THE_NETWORK</h3>
-		<p class="mb-6 text-amber-100/70 font-mono" is:raw>
-			const mission = {<br/> &nbsp;&nbsp;type: "support_next_gen_talent",<br/> &nbsp;&nbsp;event:
-			"COPS_WEEK_2025",<br/> &nbsp;&nbsp;status: "seeking_allies"<br/> };
-		</p>
-		<a
-			href="#sponsor-prospectus"
-			class="inline-block bg-amber-100/10 text-amber-100 px-6 py-3 hover:bg-amber-100/20 transition-colors font-mono">
-			./download_prospectus
-		</a>
-	</div>
+  <div class="w-full max-w-2xl bg-black/80 border-l-2 border-amber-100/30 p-8">
+    <h3 class="text-2xl font-mono text-amber-100 mb-4">// JOIN_THE_NETWORK</h3>
+    <p class="mb-6 text-amber-100/70 font-mono" is:raw>
+      const mission = {<br/> &nbsp;&nbsp;type: "support_next_gen_talent",<br/>
+      &nbsp;&nbsp;event: "COPS_WEEK_2025",<br/> &nbsp;&nbsp;status:
+      "seeking_allies"<br/> };
+    </p>
+    <a
+      href="#sponsor-prospectus"
+      class="inline-block bg-amber-100/10 text-amber-100 px-6 py-3 hover:bg-amber-100/20 transition-colors font-mono"
+    >
+      ./download_prospectus
+    </a>
+  </div>
 
-	<div class="w-full">
-		{
-			sponsorTiers.map((tier) => (
-				<div class="mb-16">
-					<div class="flex items-center gap-4 mb-8">
-						<div class="p-3 border-l-2 border-amber-100/30 bg-black/30">
-							<Icon name={tier.icon} />
-						</div>
-						<h3 class="text-2xl font-mono text-amber-100">$ {tier.name}_ALLIES</h3>
-					</div>
-					<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-						{tier.sponsors.map((sponsor) => (
-							<a
-								href={sponsor.url}
-								class="group bg-black/80 p-6 border-l-2 border-amber-100/80 hover:bg-amber-100/80 transition-all duration-300 flex flex-col items-center justify-center gap-4">
-								<img
-									src={sponsor.logo}
-									alt={`${sponsor.name} logo`}
-									class="max-w-full h-auto opacity-80 group-hover:opacity-100 transition-all"
-								/>
-								<div class="font-mono text-xs text-amber-100/70 text-center mt-2">
-									<p class="mb-1">$ {sponsor.name}</p>
-									<p class="opacity-75">{sponsor.details}</p>
-								</div>
-							</a>
-						))}
-						{tier.sponsors.length === 0 && (
-							<div class="col-span-3 border-l-2 border-amber-100/30 p-6 text-center bg-black/30">
-								<p class="text-amber-100/70 font-mono">[ SLOTS_AVAILABLE ]</p>
-							</div>
-						)}
-					</div>
-				</div>
-			))
-		}
-	</div>
+  <div class="w-full">
+    {
+      sponsorTiers.map((tier) => (
+        <div class="mb-16">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="p-3 border-l-2 border-amber-100/30 bg-black/30">
+              <Icon name={tier.icon} />
+            </div>
+            <h3 class="text-2xl font-mono text-amber-100">
+              $ {tier.name}_ALLIES
+            </h3>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {tier.sponsors.map((sponsor) => (
+              <a
+                href={sponsor.url}
+                class="group bg-black/80 p-6 border-l-2 border-amber-100/80 hover:bg-amber-100/80 transition-all duration-300 flex flex-col items-center justify-center gap-4"
+              >
+                <img
+                  src={sponsor.logo}
+                  alt={`${sponsor.name} logo`}
+                  class="max-w-full h-auto opacity-80 group-hover:opacity-100 transition-all"
+                />
+                <div class="font-mono text-xs text-amber-100/70 text-center mt-2">
+                  <p class="mb-1">$ {sponsor.name}</p>
+                  <p class="opacity-75">{sponsor.details}</p>
+                </div>
+              </a>
+            ))}
+            {tier.sponsors.length === 0 && (
+              <div class="col-span-3 border-l-2 border-amber-100/30 p-6 text-center bg-black/30">
+                <p class="text-amber-100/70 font-mono">[ SLOTS_AVAILABLE ]</p>
+              </div>
+            )}
+          </div>
+        </div>
+      ))
+    }
+  </div>
 </section>

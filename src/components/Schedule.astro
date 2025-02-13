@@ -1,88 +1,109 @@
 ---
 const schedule = [
-    {
-        date: '2025-02-16',
-        day: 'Day 0',
-        events: [
-            { time: '10:00', title: 'Mira Networks Workshop', type: 'ml' }
-        ]
-    },
-    {
-        date: '2025-02-21',
-        day: 'Day 5',
-        events: [
-            { time: '17:00', title: 'SheBuilds by Bhawna Chauhan', type: 'dev', location: 'ABLT-4' }
-        ]
-    },
-    {
-        date: '2025-02-22',
-        day: 'Day 6',
-        events: [
-            { time: '10:00', title: 'Solana Workshop', type: 'dev', location: 'ABLT-4' },
-            { time: '17:30', title: 'Kashi CTF Begins', type: 'security' }
-        ]
-    },
-    {
-        date: '2025-02-23',
-        day: 'Day 7',
-        events: [
-            { time: '17:30', title: 'Kashi CTF Ends', type: 'security' }
-        ]
-    }
+  {
+    date: '2025-02-16',
+    day: 'Day 0',
+    events: [{ time: '10:00', title: 'Mira Networks Workshop', type: 'ml' }],
+  },
+  {
+    date: '2025-02-21',
+    day: 'Day 5',
+    events: [
+      {
+        time: '17:00',
+        title: 'SheBuilds by Bhawna Chauhan',
+        type: 'dev',
+        location: 'ABLT-4',
+      },
+    ],
+  },
+  {
+    date: '2025-02-22',
+    day: 'Day 6',
+    events: [
+      {
+        time: '10:00',
+        title: 'Solana Workshop',
+        type: 'dev',
+        location: 'ABLT-4',
+      },
+      { time: '17:30', title: 'Kashi CTF Begins', type: 'security' },
+    ],
+  },
+  {
+    date: '2025-02-23',
+    day: 'Day 7',
+    events: [{ time: '17:30', title: 'Kashi CTF Ends', type: 'security' }],
+  },
 ];
 
 const getEventColor = (type: string) => {
-    const colors = {
-        ml: 'text-green-400',
-        dev: 'text-yellow-400',
-        security: 'text-blue-400',
-        ceremony: 'text-amber-100'
-    };
-    return colors[type as keyof typeof colors] || 'text-amber-100';
+  const colors = {
+    ml: 'text-green-400',
+    dev: 'text-yellow-400',
+    security: 'text-blue-400',
+    ceremony: 'text-amber-100',
+  };
+  return colors[type as keyof typeof colors] || 'text-amber-100';
 };
 ---
 
-<section class="py-20 border-t-2 border-amber-100/30 px-4 md:px-0" id="schedule">
-    <div class="text-center font-mono mb-16">
-        <p class="text-amber-100/70">$ cat schedule.txt</p>
-        <h2 class="text-4xl text-amber-100 mt-2">[ TIMELINE ]</h2>
-    </div>
+<section
+  class="py-20 border-t-2 border-amber-100/30 px-4 md:px-0"
+  id="schedule"
+>
+  <div class="text-center font-mono mb-16">
+    <p class="text-amber-100/70">$ cat schedule.txt</p>
+    <h2 class="text-4xl text-amber-100 mt-2">[ TIMELINE ]</h2>
+  </div>
 
-    <div class="max-w-4xl mx-auto bg-black/80 border-l-2 border-amber-100/30 p-8">
-        {schedule.map((day) => (
-            <div class="mb-5">
-                <div class="flex items-center gap-4 mb-3">
-                    <div class="p-2 border-l-2 border-amber-100/30 bg-black/30">
-                        <span class="text-amber-100">{day.day}</span>
-                    </div>
-                    <h3 class="text-xl font-mono text-amber-100/70">{new Date(day.date).toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'})}</h3>
-                </div>
-                <div class="pl-6 border-l border-amber-100/20">
-                    {day.events.map((event) => (
-                        <div class="flex items-start gap-6 mb-4 pt-1">
-                            <span class="text-amber-100/50 font-mono w-16">{event.time}</span>
-                            <span class={`font-mono ${getEventColor(event.type)}`}>{event.title}</span>
-                        </div>
-                    ))}
-                </div>
+  <div class="max-w-4xl mx-auto bg-black/80 border-l-2 border-amber-100/30 p-8">
+    {
+      schedule.map((day) => (
+        <div class="mb-5">
+          <div class="flex items-center gap-4 mb-3">
+            <div class="p-2 border-l-2 border-amber-100/30 bg-black/30">
+              <span class="text-amber-100">{day.day}</span>
             </div>
-        ))}
-    </div>
-
-    <div class="max-w-4xl mx-auto mt-8 font-mono text-sm">
-        <div class="flex justify-center gap-8">
-            <div class="flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-green-400"></span>
-                <span class="text-amber-100/70">IG</span>
-            </div>
-            <div class="flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
-                <span class="text-amber-100/70">SDG</span>
-            </div>
-            <div class="flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-blue-400"></span>
-                <span class="text-amber-100/70">Infosec</span>
-            </div>
+            <h3 class="text-xl font-mono text-amber-100/70">
+              {new Date(day.date).toLocaleDateString('en-US', {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+              })}
+            </h3>
+          </div>
+          <div class="pl-6 border-l border-amber-100/20">
+            {day.events.map((event) => (
+              <div class="flex items-start gap-6 mb-4 pt-1">
+                <span class="text-amber-100/50 font-mono w-16">
+                  {event.time}
+                </span>
+                <span class={`font-mono ${getEventColor(event.type)}`}>
+                  {event.title}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
+      ))
+    }
+  </div>
+
+  <div class="max-w-4xl mx-auto mt-8 font-mono text-sm">
+    <div class="flex justify-center gap-8">
+      <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-green-400"></span>
+        <span class="text-amber-100/70">IG</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+        <span class="text-amber-100/70">SDG</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-blue-400"></span>
+        <span class="text-amber-100/70">Infosec</span>
+      </div>
     </div>
+  </div>
 </section>
