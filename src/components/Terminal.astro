@@ -1,25 +1,3 @@
----
-const now = new Date();
-
-const lastLoginTime = now.toLocaleString('en-US', {
-  weekday: 'short',
-  month: 'short',
-  day: '2-digit',
-  hour: '2-digit',
-  minute: '2-digit',
-  second: '2-digit',
-  hour12: false
-});
-
-const terminalTime = now.toLocaleString('en-US', {
-  month: 'short',
-  day: '2-digit',
-  hour: '2-digit',
-  minute: '2-digit',
-  hour12: false
-});
----
-
 <div class="flex items-center justify-center md:w-1/2">
   <div
     class="w-full rounded-lg border-2 border-amber-100/80 bg-black/80 p-6 font-mono text-amber-100/90"
@@ -30,19 +8,13 @@ const terminalTime = now.toLocaleString('en-US', {
       <span>●</span>
     </div>
     <div id="terminal-content" class="h-[350px] overflow-y-auto md:h-auto">
-      <p class="mb-2 hidden">last login: {lastLoginTime} on ttys000</p>
+      <p class="mb-2 hidden" id="last-login"></p>
       <p class="mb-1 hidden">cops@server:~$ date</p>
       <p class="hidden text-amber-100">COPS Week 2025: 16th–23rd February</p>
       <p class="mb-1 hidden">cops@server:~$ ls -la events/</p>
-      <p class="hidden text-green-400">
-        drwxr-xr-x 2 cops cops 4096 {terminalTime} machine-learning/
-      </p>
-      <p class="hidden text-yellow-400">
-        drwxr-xr-x 2 cops cops 4096 {terminalTime} development/
-      </p>
-      <p class="hidden text-blue-400">
-        drwxr-xr-x 2 cops cops 4096 {terminalTime} cybersecurity/
-      </p>
+      <p class="hidden text-green-400" id="ml-dir"></p>
+      <p class="hidden text-yellow-400" id="dev-dir"></p>
+      <p class="hidden text-blue-400" id="sec-dir"></p>
       <p class="mt-4 hidden">cops@server:~$ <span class="cursor">_</span></p>
     </div>
   </div>
@@ -72,6 +44,32 @@ const terminalTime = now.toLocaleString('en-US', {
   const CHAR_TYPING_DELAY = 12.5;
   const LINE_TYPING_DELAY = 200;
   const ANIMATION_RESET_DELAY = 6 * 1000;
+
+  function updateTime() {
+    const now = new Date();
+    const lastLoginTime = now.toLocaleString('en-US', {
+      weekday: 'short',
+      month: 'short',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false
+    });
+
+    const terminalTime = now.toLocaleString('en-US', {
+      month: 'short',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    });
+
+    document.getElementById('last-login').textContent = `last login: ${lastLoginTime} on ttys000`;
+    document.getElementById('ml-dir').textContent = `drwxr-xr-x 2 cops cops 4096 ${terminalTime} machine-learning/`;
+    document.getElementById('dev-dir').textContent = `drwxr-xr-x 2 cops cops 4096 ${terminalTime} development/`;
+    document.getElementById('sec-dir').textContent = `drwxr-xr-x 2 cops cops 4096 ${terminalTime} cybersecurity/`;
+  }
 
   function typeWriter() {
     const terminalContent = document.getElementById('terminal-content');
@@ -131,6 +129,9 @@ const terminalTime = now.toLocaleString('en-US', {
     showNextLine();
   }
 
-  // Start the animation when the page loads
-  document.addEventListener('DOMContentLoaded', typeWriter);
+  // Update time before starting animation
+  document.addEventListener('DOMContentLoaded', () => {
+    updateTime();
+    typeWriter();
+  });
 </script>
