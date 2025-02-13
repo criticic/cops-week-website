@@ -102,6 +102,7 @@
   const menuToggle = document.getElementById('menu-toggle');
   const menuClose = document.getElementById('menu-close');
   const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuLinks = mobileMenu?.querySelectorAll('a');
 
   if (menuToggle && menuClose && mobileMenu) {
     function toggleMenu() {
@@ -117,6 +118,10 @@
 
     menuToggle.addEventListener('click', toggleMenu);
     menuClose.addEventListener('click', toggleMenu);
+
+    mobileMenuLinks?.forEach(link => {
+      link.addEventListener('click', toggleMenu);
+    });
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
