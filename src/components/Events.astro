@@ -8,6 +8,7 @@ const events = [
       'A weeklong international ML hackathon covering computer vision, NLP, RL, and data science.',
     organizer: 'COPS IG',
     bgColor: 'bg-ppink',
+    url: 'https://unstop.com/hackathons/ctrl-shift-intelligence-cops-week-2025-iit-bhu-1400729'
   },
   {
     title: 'DebugIt',
@@ -17,6 +18,7 @@ const events = [
       'A weeklong international software development hackathon for all skill levels.',
     organizer: 'COPS SDG',
     bgColor: 'bg-pgreen',
+    url: 'https://unstop.com/hackathons/debugit-software-development-challenge-cops-week-2025-iit-bhu-1400712'
   },
   {
     title: 'Kashi CTF',
@@ -26,6 +28,7 @@ const events = [
       '24-hour international CTF with beginner-friendly to advanced challenges.',
     organizer: 'COPS CyberSec',
     bgColor: 'bg-pblue',
+    url: 'https://unstop.com/hackathons/kashi-ctf-2025-capture-the-flag-cops-week-2025-iit-bhu-1400421'
   },
   {
     title: 'NP Compete',
@@ -35,6 +38,7 @@ const events = [
       'A 36-hour competitive programming contest exclusively for IIT (BHU) freshers.',
     organizer: 'COPS CPG',
     bgColor: 'bg-pred',
+    url: ''
   },
 ];
 ---
@@ -62,9 +66,19 @@ const events = [
           <p class="mt-4 font-mono text-sm text-amber-100/80">
             {event.description}
           </p>
-          <p class="mt-4 text-xs text-amber-100/60">
-            Organized By: {event.organizer}
-          </p>
+          <div class="mt-4 flex items-center justify-between">
+            <p class="text-xs text-amber-100/60">
+              Organized By: {event.organizer}
+            </p>
+            {event.url && (
+              <a
+                href={event.url}
+                class="bg-amber-100/10 px-3 py-2 font-mono text-sm text-amber-100 transition-colors hover:bg-amber-100/20"
+              >
+                ./register.sh
+              </a>
+            )}
+          </div>
         </li>
       ))
     }
